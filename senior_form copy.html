@@ -82,29 +82,44 @@ input, select {
 .enroll-btn:hover {
   background:#333;
 }
-
-/* ================== RESPONSIVE MEDIA QUERIES ================== */
-
 /* Tablets (width ≤ 768px) */
 @media (max-width: 768px) {
-  .form {
+  body {
     padding: 15px;
+    background-size: cover; /* Ensure background scales */
+  }
+  .form {
+    padding: 20px; /* Slightly more space */
   }
   .row {
-    flex-direction: column;
+    flex-direction: column; /* Stack form rows vertically */
+    gap: 15px; /* Add spacing between stacked items */
   }
   .field {
     font-size: 14px;
+    width: 100%; /* Ensure inputs take full width */
+  }
+  input, select {
+    height: 40px;
+    padding: 8px;
+    font-size: 14px;
   }
   .address-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px; /* Add spacing between grid items */
   }
   .address-grid .wide {
     grid-column: span 2;
   }
   .enroll-btn {
-    padding: 10px 30px;
+    padding: 12px 30px;
     width: 100%;
+    font-size: 16px;
+  }
+  h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
   }
 }
 
@@ -115,19 +130,26 @@ input, select {
     background-size: cover;
   }
   .form {
-    padding: 10px;
+    padding: 15px;
     border-width: 1px;
+  }
+  .row {
+    flex-direction: column;
+    gap: 10px;
   }
   .field {
     font-size: 12px;
+    width: 100%;
   }
   input, select {
     height: 35px;
     padding: 5px;
-    font-size: 14px;
+    font-size: 13px;
   }
   .address-grid {
+    display: grid;
     grid-template-columns: 1fr;
+    gap: 8px;
   }
   .address-grid .wide {
     grid-column: span 1;
@@ -139,7 +161,7 @@ input, select {
   }
   h3 {
     font-size: 16px;
-    padding: 8px;
+    padding: 8px 0;
   }
 }
 
