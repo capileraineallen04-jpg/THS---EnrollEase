@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Learner Enrollment Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Base Styles (keep your existing ones) */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: url('TaalHighSchool.png') no-repeat center center fixed;
+  background-size: cover;
+  padding: 20px;
+}
+
+.form {
+  background:#fff;
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+  border:2px solid #000;
+}
+
+h3 {
+  text-align:center;
+  margin:10px 0;
+  border:1px solid #000;
+  padding:5px;
+  background:#eaeaea;
+}
+
+.row {
+  display:flex;
+  gap:10px;
+  margin-bottom:10px;
+  flex-wrap:wrap;
+}
+
+.field {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  font-size:12px;
+}
+
+label {
+  font-weight:bold;
+  margin-bottom:3px;
+}
+
+input, select {
+  border:1px solid #000;
+  padding:5px;
+  height:30px;
+}
+
+.address-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.address-grid .wide {
+  grid-column:span 2;
+}
+
+.section-box {
+  border:1px solid #000;
+  padding:10px;
+  margin-bottom:15px;
+}
+
+.enroll-btn {
+  background:#000;
+  color:#fff;
+  border:1px solid #000;
+  padding:10px 50px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.enroll-btn:hover {
+  background:#333;
+}
+
+/* ================== RESPONSIVE MEDIA QUERIES ================== */
+
+/* Tablets (width ≤ 768px) */
+@media (max-width: 768px) {
+  .form {
+    padding: 15px;
+  }
+  .row {
+    flex-direction: column;
+  }
+  .field {
+    font-size: 14px;
+  }
+  .address-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .address-grid .wide {
+    grid-column: span 2;
+  }
+  .enroll-btn {
+    padding: 10px 30px;
+    width: 100%;
+  }
+}
+
+/* Mobile Phones (width ≤ 480px) */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+    background-size: cover;
+  }
+  .form {
+    padding: 10px;
+    border-width: 1px;
+  }
+  .field {
+    font-size: 12px;
+  }
+  input, select {
+    height: 35px;
+    padding: 5px;
+    font-size: 14px;
+  }
+  .address-grid {
+    grid-template-columns: 1fr;
+  }
+  .address-grid .wide {
+    grid-column: span 1;
+  }
+  .enroll-btn {
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+  }
+  h3 {
+    font-size: 16px;
+    padding: 8px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="form">
+<form>
+<!-- TOP INFO -->
+<div class="row">
+  <div class="field">
+    <label>School Year</label>
+    <select name="schoolYear">
+      <option value="">Select</option>
+      <option>2025 - 2026</option>
+      <option>2026 - 2027</option>
+    </select>
+  </div>
+  <div class="field">
+    <label>Grade Level to Enroll</label>
+    <select name="gradeLevel" id="gradeLevel">
+      <option value="">Select</option>
+      <option>Grade 11</option>
+      <option>Grade 12</option>
+    </select>
+  </div>
+  <div class="field">
+    <label>With LRN</label>
+    <select name="with-lrn">
+      <option value="">Select</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+  </div>
+  <div class="field">
+    <label>Returning (Balik-Aral)</label>
+    <select name="balik-aral">
+      <option value="">Select</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+  </div>
+</div>
+
+<h3>LEARNER INFORMATION</h3>
+<div class="row">
+  <div class="field"><label>PSA No.</label><input type="text" name="psa" placeholder="1997-0000"></div>
+  <div class="field"><label>LRN</label><input type="text" name="lrn"></div>
+</div>
+<div class="row">
+  <div class="field"><label>Last Name</label><input type="text" name="lastName"></div>
+  <div class="field"><label>First Name</label><input type="text" name="firstName"></div>
+  <div class="field"><label>Middle Name</label><input type="text" name="middleName"></div>
+</div>
+<div class="row">
+  <div class="field"><label>Extension</label><input type="text" name="extension" placeholder="E.G. Jr"></div>
+  <div class="field"><label>Birthdate</label><input type="date" name="birthdate"></div>
+  <div class="field">
+    <label>Sex</label>
+    <select name="sex">
+      <option value="">Select</option>
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+  </div>
+  <div class="field"><label>Age</label><input type="number" name="age"></div>
+</div>
+<div class="row">
+  <div class="field"><label>Place of Birth</label><input type="text" name="placeOfBirth"></div>
+  <div class="field"><label>Mother Tongue</label><input type="text" name="motherTongue"></div>
+</div>
+
+<h3>ADDRESS</h3>
+<div class="address-grid">
+  <div class="field"><label>House No.</label><input type="text" name="houseNo"></div>
+  <div class="field wide"><label>Street</label><input type="text" name="street"></div>
+  <div class="field"><label>Barangay</label><input type="text" name="barangay"></div>
+  <div class="field"><label>City</label><input type="text" name="city"></div>
+  <div class="field wide"><label>Province</label><input type="text" name="province"></div>
+  <div class="field"><label>Zip Code</label><input type="text" name="zipCode" maxlength="4"></div>
+</div>
+
+<h3>PARENT / GUARDIAN INFORMATION</h3>
+<div class="row">
+  <div class="field"><label>Father's Name</label><input type="text" name="fatherName" placeholder="First Name Middle Name, Last Name"></div>
+  <div class="field"><label>Contact Number</label><input type="text" name="fatherContact" maxlength="11"></div>
+</div>
+<div class="row">
+  <div class="field"><label>Mother's Name</label><input type="text" name="motherName" placeholder="First Name Middle Name, Last Name"></div>
+  <div class="field"><label>Contact Number</label><input type="text" name="motherContact" maxlength="11"></div>
+</div>
+<div class="row">
+  <div class="field"><label>Guardian Name</label><input type="text" name="guardianName" placeholder="First Name Middle Name, Last Name"></div>
+  <div class="field"><label>Contact Number</label><input type="text" name="guardianContact" maxlength="11"></div>
+</div>
+
+<h3>FOR SENIOR HIGH SCHOOL</h3>
+<div class="row">
+  <div class="field">
+    <label>Semester</label>
+    <select name="semester">
+      <option value="">Select</option>
+      <option>1st Semester</option>
+      <option>2nd Semester</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="field">
+    <label>Track</label>
+    <select name="track" id="track">
+      <option value="">Select Track</option>
+      <option value="Academic">Academic</option>
+      <option value="Technology Vocational Livelihood">Technology Vocational Livelihood</option>
+    </select>
+  </div>
+  <div class="field" style="flex:2">
+    <label>Strand</label>
+    <select name="strand" id="strand">
+      <option value="">Select Strand</option>
+    </select>
+  </div>
+</div>
+
+<h3>OPTIONAL INFORMATION</h3>
+<div class="section-box">
+  <label>Belonging to IP Community?</label>
+  <select name="ip">
+    <option value="">Select</option>
+    <option>Yes</option>
+    <option>No</option>
+  </select>
+  <br><br>
+  <input type="text" placeholder="If yes, specify" name="culture">
+</div>
+<div class="section-box">
+  <label>Learner with Disability?</label>
+  <select name="disability">
+    <option value="">Select</option>
+    <option>Yes</option>
+    <option>No</option>
+  </select>
+  <br><br>
+  <label>Disability Type</label>
+  <select name="disType">
+    <option value="">If yes, Select your Disabilities</option>
+    <option>Visual Impairment</option>
+    <option>Hearing Impairment</option>
+    <option>Learning Disability</option>
+    <option>Intellectual Disability</option>
+  </select>
+</div>
+<div class="section-box">
+  <label>Are you a 4P's Community?</label>
+  <select name="4Ps">
+    <option value="">Select</option>
+    <option>Yes</option>
+    <option>No</option>
+  </select>
+  <br><br>
+  <input type="text" placeholder="4P's Household ID" name="HouseID">
+</div>
+
+<div style="text-align:center;margin-top:20px;">
+  <button type="button" class="enroll-btn" onclick="goToSuccess()">ENROLL</button>
+</div>
+
+</form>
+</div>
+
+<script>
+const strandOptions = {
+  "Grade 11": {
+    Academic: ["Human and Social Science","General Academic Strand","Science, Technology, Engineering, and Mathematics","Accountancy Buissness and Management"],
+    "Technology Vocational Livelihood": ["Computer Programming","Consumer Electronics","Home Economics"]
+  },
+  "Grade 12": {
+    Academic: ["Human and Social Science 1","Human and Social Science 2","Human and Social Science 3","Human and Social Science 4","General Academic Strand","Science, Technology, Engineering, and Mathematics","Accountancy Buissness and Management"],
+    "Technology Vocational Livelihood": ["Computer Programming","Consumer Electronics","Home Economics 1","Home Economics 2"]
+  }
+};
+
+const gradeSelect = document.getElementById("gradeLevel");
+const trackSelect = document.getElementById("track");
+const strandSelect = document.getElementById("strand");
+
+function updateStrands() {
+  strandSelect.innerHTML = '<option value="">Select Strand</option>';
+  const grade = gradeSelect.value;
+  const track = trackSelect.value;
+  if (strandOptions[grade] && strandOptions[grade][track]) {
+    strandOptions[grade][track].forEach(s => {
+      const option = document.createElement("option");
+      option.value = s;
+      option.textContent = s;
+      strandSelect.appendChild(option);
+    });
+  }
+}
+
+
+gradeSelect.addEventListener("change", () => {
+  trackSelect.value = "";
+  strandSelect.innerHTML = '<option value="">Select Strand</option>';
+});
+
+gradeSelect.addEventListener("change", updateStrands);
+trackSelect.addEventListener("change", updateStrands);
+
+
+async function goToSuccess() {
+  try {
+
+    const fields = {
+      schoolYear: document.querySelector('select[name="schoolYear"]'),
+      gradeLevel: gradeSelect,
+      withlrn: document.querySelector('select[name="with-lrn"]'),
+      balikaral: document.querySelector('select[name="balik-aral"]'),
+      psa: document.querySelector('input[name="psa"]'),
+      lrn: document.querySelector('input[name="lrn"]'),
+      lastName: document.querySelector('input[name="lastName"]'),
+      firstName: document.querySelector('input[name="firstName"]'),
+      middleName: document.querySelector('input[name="middleName"]'),
+      extensionname: document.querySelector('input[name="extension"]'),
+      birthdate: document.querySelector('input[name="birthdate"]'),
+      sex: document.querySelector('select[name="sex"]'),
+      age: document.querySelector('input[name="age"]'),
+      placeOfBirth: document.querySelector('input[name="placeOfBirth"]'),
+      motherTongue: document.querySelector('input[name="motherTongue"]'),
+      houseNo: document.querySelector('input[name="houseNo"]'),
+      street: document.querySelector('input[name="street"]'),
+      barangay: document.querySelector('input[name="barangay"]'),
+      city: document.querySelector('input[name="city"]'),
+      province: document.querySelector('input[name="province"]'),
+      zipCode: document.querySelector('input[name="zipCode"]'),
+      fatherName: document.querySelector('input[name="fatherName"]'),
+      fatherContact: document.querySelector('input[name="fatherContact"]'),
+      motherName: document.querySelector('input[name="motherName"]'),
+      motherContact: document.querySelector('input[name="motherContact"]'),
+      guardianName: document.querySelector('input[name="guardianName"]'),
+      guardianContact: document.querySelector('input[name="guardianContact"]'),
+      semester: document.querySelector('select[name="semester"]'),
+      track: trackSelect,
+      strand: strandSelect,
+      ip: document.querySelector('select[name="ip"]'),
+      culture: document.querySelector('input[name="culture"]'),
+      disability: document.querySelector('select[name="disability"]'),
+      disType: document.querySelector('select[name="disType"]'),
+      fourPs: document.querySelector('select[name="4Ps"]'),
+      houseID: document.querySelector('input[name="HouseID"]')
+    };
+
+
+    if(fields.birthdate.value){
+      const today = new Date();
+      const birth = new Date(fields.birthdate.value);
+      let calculatedAge = today.getFullYear() - birth.getFullYear();
+      if(today.getMonth() < birth.getMonth() || (today.getMonth() === birth.getMonth() && today.getDate() < birth.getDate())) calculatedAge--;
+      fields.age.value = calculatedAge;
+    }
+
+
+    const requiredFields = [
+      {field: fields.schoolYear, name: 'School Year'},
+      {field: fields.gradeLevel, name: 'Grade Level'},
+      {field: fields.withlrn, name: 'With LRN'},
+      {field: fields.balikaral, name: 'Balik-Aral'},
+      {field: fields.psa, name:'PSA No.'},
+      {field: fields.lrn, name:'LRN'},
+      {field: fields.lastName, name:'Last Name'},
+      {field: fields.firstName, name:'First Name'},
+      {field: fields.middleName, name:'Middle Name'},
+      {field: fields.birthdate, name:'Birthdate'},
+      {field: fields.sex, name:'Sex'},
+      {field: fields.age, name:'Age'},
+      {field: fields.placeOfBirth, name:'Place of Birth'},
+      {field: fields.motherTongue, name:'Mother Tongue'},
+      {field: fields.houseNo, name:'House No.'},
+      {field: fields.street, name:'Street'},
+      {field: fields.barangay, name:'Barangay'},
+      {field: fields.city, name:'City'},
+      {field: fields.province, name:'Province'},
+      {field: fields.zipCode, name:'Zip Code'},
+      {field: fields.fatherName, name:"Father's Name"},
+      {field: fields.fatherContact, name:"Father Contact"},
+      {field: fields.motherName, name:"Mother's Name"},
+      {field: fields.motherContact, name:"Mother Contact"},
+      {field: fields.guardianName, name:"Guardian Name"},
+      {field: fields.guardianContact, name:"Guardian Contact"},
+      {field: fields.semester, name:"Semester"},
+      {field: fields.track, name:"Track"},
+      {field: fields.strand, name:"Strand"}
+    ];
+
+    for(let item of requiredFields){
+      if(!item.field.value.trim()){
+        alert(`Please fill out: ${item.name}`);
+        item.field.focus();
+        return;
+      }
+    }
+
+
+    const dataset = "SHS-Students";
+
+
+    const studentID = 'STU-' + Math.random().toString(36).substring(2,10).toUpperCase();
+
+
+
+    const checkRes = await fetch(`https://enrollease---enrollment-form-default-rtdb.asia-southeast1.firebasedatabase.app/${dataset}.json`);
+    const allStudents = await checkRes.json();
+    if(allStudents){
+      for(const key in allStudents){
+        const s = allStudents[key];
+        const psaMatch = s["3-Personal-Information"]["1-PSA"];
+        const lrnMatch = s["3-Personal-Information"]["2-LRN"];
+        if(psaMatch === fields.psa.value && lrnMatch === fields.lrn.value){
+          alert("This student already exists!");
+          return;
+        }
+      }
+    }
+
+    const Id = allStudents ? Object.keys(allStudents).length + 1 : 1;
+
+    // --- SAVE STUDENT DATA ---
+    const studentData = {
+      "1-ID": Id,
+      "2-School-Information":{
+        "1-School-Year":fields.schoolYear.value,
+        "2-Grade-Level":fields.gradeLevel.value,
+        "3-With-LRN":fields.withlrn.value,
+        "4-Balik-Aral":fields.balikaral.value,
+        "5-Semester":fields.semester.value,
+        "6-Track":fields.track.value,
+        "7-Strand":fields.strand.value
+      },
+      "3-Personal-Information":{
+        "1-PSA":fields.psa.value,
+        "2-LRN":fields.lrn.value,
+        "3-Last-Name":fields.lastName.value,
+        "4-First-Name":fields.firstName.value,
+        "5-Middle-Name":fields.middleName.value,
+        "6-Extension":fields.extensionname.value,
+        "7-Birthdate":fields.birthdate.value,
+        "8-Sex":fields.sex.value,
+        "9-Age":fields.age.value,
+        "10-Place Of Birth":fields.placeOfBirth.value,
+        "11-Mother Tongue":fields.motherTongue.value
+      },
+      "4-Address":{
+        "1-House-No":fields.houseNo.value,
+        "2-Street":fields.street.value,
+        "3-Barangay":fields.barangay.value,
+        "4-City":fields.city.value,
+        "5-Province":fields.province.value,
+        "6-Zip-Code":fields.zipCode.value
+      },
+      "5-Parents":{
+        "1-Fathers-Name":fields.fatherName.value,
+        "2-Fathers-Contact":fields.fatherContact.value,
+        "3-Mothers-Name":fields.motherName.value,
+        "4-Mothers-Contact":fields.motherContact.value,
+        "5-Guardians-Name":fields.guardianName.value,
+        "6-Guardians-Contact":fields.guardianContact.value
+      },
+      "6-Optional-Information":{
+        "1-Indegenous-People":fields.ip.value,
+        "2-Culture":fields.culture.value,
+        "3-Disability":fields.disability.value,
+        "4-Type":fields.disType.value,
+        "5-4Ps":fields.fourPs.value,
+        "6-HouseID":fields.houseID.value
+      },
+      "7-Time-Stamp": new Date().toISOString()
+    };
+
+    await fetch(`https://enrollease---enrollment-form-default-rtdb.asia-southeast1.firebasedatabase.app/${dataset}/${studentID}.json`,{
+      method:"PUT",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(studentData)
+    });
+
+    alert(`Student data saved successfully! Enrollment ID: ${Id}`);
+    window.location.href="successfull.html";
+
+  } catch(err){
+    alert("Error saving data. Please try again.");
+    console.error(err);
+  }
+}
+</script>
+
+
+
+</body>
+</html>
